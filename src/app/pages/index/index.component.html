@@ -1,0 +1,771 @@
+<nav
+  class="navbar navbar-expand-lg fixed-top navbar-transparent"
+  color-on-scroll="100"
+  id="navbar-top"
+>
+  <div class="container">
+    <div class="navbar-translate">
+      <a
+        class="navbar-brand"
+        placement="bottom"
+        [routerLink]="['/home']"
+        target="_blank"
+        tooltip="Designed and Coded by Creative Tim"
+      >
+        <span> D•Hunt </span> 
+      </a>
+      <button
+        aria-controls="navigation-index"
+        aria-label="Toggle navigation"
+        class="navbar-toggler navbar-toggler"
+        [attr.aria-expanded]="!isCollapsed"
+        (click)="isCollapsed = !isCollapsed"
+        id="navigation"
+        type="button"
+      >
+        <span class="navbar-toggler-bar bar1"> </span>
+        <span class="navbar-toggler-bar bar2"> </span>
+        <span class="navbar-toggler-bar bar3"> </span>
+      </button>
+    </div>
+    <div
+      class="navbar-collapse justify-content-end"
+      [collapse]="isCollapsed"
+      id="navigation"
+    >
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand"><a> D•HUNT </a></div>
+          <div class="col-6 collapse-close text-right">
+            <button
+              aria-controls="navigation-index"
+              aria-label="Toggle navigation"
+              class="navbar-toggler"
+              [attr.aria-expanded]="!isCollapsed"
+              (click)="isCollapsed = !isCollapsed"
+              id="navigation"
+              type="button"
+            >
+              <i class="tim-icons icon-simple-remove"> </i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav">
+        <li class="nav-item p-0">
+          <a
+            class="nav-link"
+            href="https://twitter.com/CreativeTim"
+            placement="bottom"
+            target="_blank"
+            tooltip="Follow us on Twitter"
+          >
+            <i class="fab fa-twitter"> </i>
+            <p class="d-lg-none d-xl-none">Twitter</p>
+          </a>
+        </li>
+        <li class="nav-item p-0">
+          <a
+            class="nav-link"
+            href="https://www.facebook.com/CreativeTim"
+            placement="bottom"
+            target="_blank"
+            tooltip="Like us on Facebook"
+          >
+            <i class="fab fa-facebook-square"> </i>
+            <p class="d-lg-none d-xl-none">Facebook</p>
+          </a>
+        </li>
+        <li class="nav-item p-0">
+          <a
+            class="nav-link"
+            href="https://www.instagram.com/CreativeTimOfficial"
+            placement="bottom"
+            target="_blank"
+            tooltip="Follow us on Instagram"
+          >
+            <i class="fab fa-instagram"> </i>
+            <p class="d-lg-none d-xl-none">Instagram</p>
+          </a>
+        </li>
+        <!-- <li class="dropdown nav-item" dropdown>
+          <a
+            class="dropdown-toggle nav-link dropdown-toggle"
+            data-toggle="dropdown"
+            dropdownToggle
+            href="javascript:void(0)"
+          >
+            <i class="fa fa-cogs d-lg-none d-xl-none"> </i> Getting started
+          </a>
+          <div class="dropdown-menu dropdown-with-icons" *dropdownMenu>
+            <a
+              class="dropdown-item"
+              href="https://demos.creative-tim.com/blk-design-system-angular/#/documentation/overview"
+            >
+              <i class="tim-icons icon-paper"> </i> Documentation
+            </a>
+            <a class="dropdown-item" [routerLink]="['/register']">
+              <i class="tim-icons icon-bullet-list-67"> </i> Register Page
+            </a>
+            <a class="dropdown-item" [routerLink]="['/landing']">
+              <i class="tim-icons icon-image-02"> </i> Landing Page
+            </a>
+            <a class="dropdown-item" [routerLink]="['/profile']">
+              <i class="tim-icons icon-single-02"> </i> Profile Page
+            </a>
+          </div>
+        </li> -->
+        <li class="nav-item">
+          <a
+            class="nav-link btn btn-default d-none d-lg-block"
+            href="javascript:void(0)"
+            (click)="scrollToDownload(target)"
+          >
+            <i class="tim-icons icon-tap-02"> </i> Let's Start
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="wrapper">
+  <div class="page-header header-filter">
+    <div class="squares square1"></div>
+    <div class="squares square2"></div>
+    <div class="squares square3"></div>
+    <div class="squares square4"></div>
+    <div class="squares square5"></div>
+    <div class="squares square6"></div>
+    <div class="squares square7"></div>
+    <div class="container">
+      <div class="content-center brand">
+        <h1 class="h1-seo">D•HUNT</h1>
+        <h3>
+          Track Real-Time Sales of any Daraz product.
+        </h3>
+        <div class="text-center col-md-12 col-lg-12">
+          <a
+            class="btn btn-danger btn-round btn-lg"
+            [routerLink]="['/register']"
+            role="button"
+          >
+            Start Tracking
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="main">
+
+    <section class="section section-lg">
+      <section class="section">
+        <img class="path" src="assets/img/path4.png" />
+  
+        <div class="container">
+          <div class="row row-grid justify-content-between">
+            <div class="col-md-5 mt-lg-5">
+              <div class="row">
+                <div class="col-lg-6 col-sm-12 px-2 py-2">
+                  <div class="card card-stats">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-5 col-md-4">
+                          <div class="icon-big text-center icon-warning">
+                            <i class="tim-icons icon-trophy text-warning"> </i>
+                          </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                          <div class="numbers">
+                            <p class="card-title">3,237</p>
+                            <p></p>
+                            <p class="card-category">Awards</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 px-2 py-2">
+                  <div class="card card-stats upper bg-default">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-5 col-md-4">
+                          <div class="icon-big text-center icon-warning">
+                            <i class="tim-icons icon-coins text-white"> </i>
+                          </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                          <div class="numbers">
+                            <p class="card-title">3,653</p>
+                            <p></p>
+                            <p class="card-category">Commits</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 col-sm-12 px-2 py-2">
+                  <div class="card card-stats">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-5 col-md-4">
+                          <div class="icon-big text-center icon-warning">
+                            <i class="tim-icons icon-gift-2 text-info"> </i>
+                          </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                          <div class="numbers">
+                            <p class="card-title">593</p>
+                            <p></p>
+                            <p class="card-category">Presents</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 px-2 py-2">
+                  <div class="card card-stats">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-5 col-md-4">
+                          <div class="icon-big text-center icon-warning">
+                            <i class="tim-icons icon-credit-card text-success">
+                            </i>
+                          </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                          <div class="numbers">
+                            <p class="card-title">10,783</p>
+                            <p></p>
+                            <p class="card-category">Forks</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pl-md-5">
+                <h1>
+                  Large <br />
+  
+                  Achivements
+                </h1>
+                <p>
+                  I should be capable of drawing a single stroke at the present
+                  moment; and yet I feel that I never was a greater artist than
+                  now.
+                </p>
+                <br />
+  
+                <p>
+                  When, while the lovely valley teems with vapour around me, and
+                  the meridian sun strikes the upper surface of the impenetrable
+                  foliage of my trees, and but a few stray.
+                </p>
+                <br />
+  
+                <a
+                  class="font-weight-bold text-info mt-5"
+                  href="javascript:void(0)"
+                >
+                  Show all <i class="tim-icons icon-minimal-right text-info"> </i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+
+    <section class="section section-lg">
+      <section class="section">
+<!-- 
+      <img class="path" src="assets/img/path4.png" />
+  
+      <img class="path2" src="assets/img/path5.png" />
+  
+      <img class="path3" src="assets/img/path2.png" />
+   -->
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12">
+            <h1 class="text-center">Your best benefit</h1>
+            <div class="row row-grid justify-content-center">
+              <div class="col-lg-3">
+                <div class="info">
+                  <div class="icon icon-primary">
+                    <i class="tim-icons icon-money-coins"> </i>
+                  </div>
+                  <h4 class="info-title">Low Commission</h4>
+                  <hr class="line-primary" />
+  
+                  <p>
+                    Divide details about your work into parts. Write a few lines
+                    about each one. A paragraph describing a feature will.
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="info">
+                  <div class="icon icon-warning">
+                    <i class="tim-icons icon-chart-pie-36"> </i>
+                  </div>
+                  <h4 class="info-title">High Incomes</h4>
+                  <hr class="line-warning" />
+  
+                  <p>
+                    Divide details about your product or agency work into parts.
+                    Write a few lines about each one. A paragraph describing
+                    feature will be a feature.
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="info">
+                  <div class="icon icon-success">
+                    <i class="tim-icons icon-single-02"> </i>
+                  </div>
+                  <h4 class="info-title">Verified People</h4>
+                  <hr class="line-success" />
+  
+                  <p>
+                    Divide details about your product or agency work into parts.
+                    Write a few lines about each one. A paragraph describing be
+                    enough.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+
+  <section class="section section-lg section-safe">
+    <img class="path" src="assets/img/path5.png" />
+
+    <div class="container">
+      <div class="row row-grid justify-content-between">
+        <div class="col-md-5">
+          <img class="img-fluid floating" src="assets/img/chester-wade.jpg" />
+
+          <div class="card card-stats bg-danger">
+            <div class="card-body">
+              <div class="justify-content-center">
+                <div class="numbers">
+                  <p class="card-title">100%</p>
+                  <p class="card-category text-white">Safe</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card card-stats bg-info">
+            <div class="card-body">
+              <div class="justify-content-center">
+                <div class="numbers">
+                  <p class="card-title">573 K</p>
+                  <p class="card-category text-white">Satisfied customers</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card card-stats bg-default">
+            <div class="card-body">
+              <div class="justify-content-center">
+                <div class="numbers">
+                  <p class="card-title">10 425</p>
+                  <p class="card-category text-white">Business</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="px-md-5">
+            <hr class="line-success" />
+
+            <h3>Awesome features</h3>
+            <p>
+              The design system comes with three pre-built pages to help you get
+              started faster. You can change the text and images and you're good
+              to go.
+            </p>
+            <ul class="list-unstyled mt-5">
+              <li class="py-2">
+                <div class="d-flex align-items-center">
+                  <div class="icon icon-success mb-2">
+                    <i class="tim-icons icon-vector"> </i>
+                  </div>
+                  <div class="ml-3"><h6>Carefully crafted components</h6></div>
+                </div>
+              </li>
+              <li class="py-2">
+                <div class="d-flex align-items-center">
+                  <div class="icon icon-success mb-2">
+                    <i class="tim-icons icon-tap-02"> </i>
+                  </div>
+                  <div class="ml-3"><h6>Amazing page examples</h6></div>
+                </div>
+              </li>
+              <li class="py-2">
+                <div class="d-flex align-items-center">
+                  <div class="icon icon-success mb-2">
+                    <i class="tim-icons icon-single-02"> </i>
+                  </div>
+                  <div class="ml-3"><h6>Super friendly support team</h6></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+    <div class="section section-download" data-background-color="black" #target>
+      <img class="path" src="assets/img/path1.png" />
+
+      <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="text-center col-md-12 col-lg-8">
+            <h2 class="title">
+              Do you love this Daraz Hunt System?
+            </h2>
+            <h4 class="description">
+              Cause if you do, it can be yours for FREE Tracking. Hit the button below to
+              Register where you can track the multiple DARAZ Products !
+            </h4>
+          </div>
+          <div class="text-center col-md-12 col-lg-8">
+            <a
+              class="btn btn-danger btn-round btn-lg"
+              [routerLink]="['/register']"
+              role="button"
+            >
+              Start Product Tracking
+            </a>
+          </div>
+        </div>
+        <br />
+
+        <br />
+
+        <br />
+
+        <br />
+
+        <br />
+
+        <div class="row row-grid align-items-center my-md">
+          <div class="col-lg-6">
+            <h3 class="text-danger font-weight-light mb-2">
+              Thank you for supporting us!
+            </h3>
+            <h4 class="mb-0 font-weight-light">
+              Let's get in touch on any of these platforms.
+            </h4>
+          </div>
+          <div class="col-lg-6 text-lg-center btn-wrapper">
+            <a
+              class="btn btn-icon btn-twitter btn-round btn-lg mr-1"
+              id="twitter"
+            >
+              <i class="fab fa-twitter"> </i>
+            </a>
+            <a
+              class="btn btn-icon btn-facebook btn-round btn-lg mr-1"
+              id="facebook"
+            >
+              <i class="fab fa-facebook-square"> </i>
+            </a>
+            <a
+              class="btn btn-icon btn-github btn-round btn-lg"
+              href="https://github.com/creativetimofficial"
+              target="_blank"
+            >
+              <i class="fab fa-github"> </i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="myModalLabel"
+      bsModal
+      class="modal fade"
+      #myModal="bs-modal"
+      id="myModal"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <button
+              aria-hidden="true"
+              class="close"
+              data-dismiss="modal"
+              type="button"
+              (click)="myModal.hide()"
+            >
+              <i class="tim-icons icon-simple-remove"> </i>
+            </button>
+            <h4 class="title title-up">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              Far far away, behind the word mountains, far from the countries
+              Vokalia and Consonantia, there live the blind texts. Separated
+              they live in Bookmarksgrove right at the coast of the Semantics, a
+              large language ocean. A small river named Duden flows by their
+              place and supplies it with the necessary regelialia. It is a
+              paradisematic country, in which roasted parts of sentences fly
+              into your mouth.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default" type="button">Nice Button</button>
+            <button
+              class="btn btn-danger"
+              data-dismiss="modal"
+              type="button"
+              (click)="myModal.hide()"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="myModalLabel"
+      bsModal
+      class="modal fade modal-mini modal-danger modal-mini"
+      #myModal1="bs-modal"
+      id="myModal1"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <button
+              aria-hidden="true"
+              class="close"
+              data-dismiss="modal"
+              (click)="myModal1.hide()"
+              type="button"
+            >
+              <i class="tim-icons icon-simple-remove text-white"> </i>
+            </button>
+            <div class="modal-profile">
+              <i class="tim-icons icon-single-02"> </i>
+            </div>
+          </div>
+          <div class="modal-body">
+            <p>Always have an access to your profile</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-link btn-neutral" type="button">Back</button>
+            <button
+              class="btn btn-link btn-neutral"
+              data-dismiss="modal"
+              type="button"
+              (click)="myModal1.hide()"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="myModalLabel"
+      bsModal
+      class="modal fade modal-black"
+      #myModal2="bs-modal"
+      id="myModal2"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <button
+              aria-hidden="true"
+              class="close"
+              data-dismiss="modal"
+              (click)="myModal2.hide()"
+              type="button"
+            >
+              <i class="tim-icons icon-simple-remove text-white"> </i>
+            </button>
+            <div class="text-muted text-center ml-auto mr-auto">
+              <h3 class="mb-0">Sign in with</h3>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="btn-wrapper text-center">
+              <a
+                class="btn btn-neutral btn-icon mr-1"
+                href="javascript:void(0)"
+              >
+                <img src="assets/img/github.svg" />
+              </a>
+              <a class="btn btn-neutral btn-icon" href="javascript:void(0)">
+                <img src="assets/img/google.svg" />
+              </a>
+            </div>
+            <div class="text-center text-muted mb-4 mt-3">
+              <small> Or sign in with credentials </small>
+            </div>
+            <form role="form">
+              <div class="form-group mb-3">
+                <div
+                  class="input-group input-group-alternative"
+                  [ngClass]="{ 'input-group-focus': focus1 === true }"
+                >
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="tim-icons icon-email-85"> </i>
+                    </span>
+                  </div>
+                  <input
+                    class="form-control"
+                    placeholder="Email"
+                    type="email"
+                    (focus)="focus1 = true"
+                    (blur)="focus1 = false"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div
+                  class="input-group input-group-alternative"
+                  [ngClass]="{ 'input-group-focus': focus2 === true }"
+                >
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="tim-icons icon-key-25"> </i>
+                    </span>
+                  </div>
+                  <input
+                    class="form-control"
+                    placeholder="Password"
+                    type="password"
+                    (focus)="focus2 = true"
+                    (blur)="focus2 = false"
+                  />
+                </div>
+              </div>
+              <div class="form-check mt-3">
+                <label class="form-check-label">
+                  <input
+                    checked="checked"
+                    class="form-check-input"
+                    type="checkbox"
+                  />
+
+                  <span class="form-check-sign"> </span> Remember me!
+                </label>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-primary my-4" type="button">
+                  Sign in
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"><h1 class="title">BLK•</h1></div>
+        <div class="col-md-3">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home']"> Home </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/landing']"> Landing </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/register']"> Register </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/profile']"> Profile </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://creative-tim.com/contact-us?ref=blkdsa-footer">
+                Contact Us
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://creative-tim.com/about-us?ref=blkdsa-footer">
+                About Us
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://creative-tim.com/blog?ref=blkdsa-footer">
+                Blog
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://opensource.org/licenses/MIT">
+                License
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h3 class="title">Follow us:</h3>
+          <div class="btn-wrapper profile">
+            <a
+              class="btn btn-icon btn-neutral btn-round btn-simple mr-1"
+              href="https://twitter.com/creativetim"
+              target="_blank"
+            >
+              <i class="fab fa-twitter"> </i>
+            </a>
+            <a
+              class="btn btn-icon btn-neutral btn-round btn-simple mr-1"
+              href="https://www.facebook.com/creativetim"
+              target="_blank"
+            >
+              <i class="fab fa-facebook-square"> </i>
+            </a>
+            <a
+              class="btn btn-icon btn-neutral btn-round btn-simple"
+              href="https://dribbble.com/creativetim"
+              target="_blank"
+            >
+              <i class="fab fa-dribbble"> </i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
