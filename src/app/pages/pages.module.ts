@@ -16,11 +16,20 @@ import { CarouselModule } from "ngx-bootstrap/carousel";
 import { ModalModule } from "ngx-bootstrap/modal";
 import { JwBootstrapSwitchNg2Module } from "jw-bootstrap-switch-ng2";
 import { PopoverModule } from "ngx-bootstrap/popover";
+import { HttpClientModule } from '@angular/common/http';
 
 import { IndexComponent } from "./index/index.component";
 import { ProfilepageComponent } from "./examples/profilepage/profilepage.component";
 import { RegisterpageComponent } from "./examples/registerpage/registerpage.component";
 import { LandingpageComponent } from "./examples/landingpage/landingpage.component";
+import { LayoutComponent } from "./layout/layout.component";
+import { FooterComponent } from "./layout/footer/footer.component";
+import { TopNavComponent } from "./layout/top-nav/top-nav.component";
+
+
+export function tokenGetter() {
+  return localStorage.getItem('auth_token');
+}
 
 @NgModule({
   imports: [
@@ -39,19 +48,35 @@ import { LandingpageComponent } from "./examples/landingpage/landingpage.compone
     AlertModule.forRoot(),
     BsDatepickerModule.forRoot(),
     CarouselModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    HttpClientModule,
+    // JwtModule.forRoot({
+    //   config: {
+    //     tokenGetter,
+    //     headerName: 'x-auth-token'
+
+    //   }
+    // })
   ],
   declarations: [
     IndexComponent,
     ProfilepageComponent,
     RegisterpageComponent,
-    LandingpageComponent
+    LandingpageComponent,
+    LayoutComponent,
+    FooterComponent,
+    TopNavComponent
+
   ],
   exports: [
     IndexComponent,
     ProfilepageComponent,
     RegisterpageComponent,
-    LandingpageComponent
+    LandingpageComponent,
+
+    LayoutComponent,
+    FooterComponent,
+    TopNavComponent
   ],
   providers: []
 })

@@ -1,4 +1,6 @@
 import { Component, OnInit, OnDestroy, HostListener } from "@angular/core";
+import { Router } from "@angular/router";
+import { AuthService } from "src/app/core/services/auth.service";
 
 @Component({
   selector: "app-registerpage",
@@ -9,7 +11,9 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
   focus;
   focus1;
   focus2;
-  constructor() {}
+  
+  constructor(private authService: AuthService, private router: Router) { }
+
   @HostListener("document:mousemove", ["$event"])
   onMouseMove(e) {
     var squares1 = document.getElementById("square1");
@@ -84,4 +88,12 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("register-page");
   }
+
+
+
+  fbLogin() {
+    this.authService.fbLogin().then(() => {
+      console.log('User has been logged in');
+      this.router.navigate(['/']);
+    });  }
 }
