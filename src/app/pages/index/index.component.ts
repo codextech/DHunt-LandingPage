@@ -1,19 +1,25 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit, OnDestroy, ViewChild } from "@angular/core";
+import { Router } from "@angular/router";
 import noUiSlider from "nouislider";
+import { AuthService } from "src/app/core/services/auth.service";
+import { LoginComponent } from "../modals/login/login.component";
 
 @Component({
   selector: "app-index",
   templateUrl: "index.component.html"
 })
 export class IndexComponent implements OnInit, OnDestroy {
+
+
+  @ViewChild(LoginComponent)
+  public LoginModal : LoginComponent;
+
+
   isCollapsed = true;
-  focus;
-  focus1;
-  focus2;
   date = new Date();
   pagination = 3;
   pagination1 = 1;
-  constructor() {}
+  constructor(public authService : AuthService ,  private router: Router) {}
   scrollToDownload(element: any) {
     element.scrollIntoView({ behavior: "smooth" });
   }
@@ -47,4 +53,18 @@ export class IndexComponent implements OnInit, OnDestroy {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("index-page");
   }
+
+
+  showModalOrGoToTrackingPage(){
+    if (this.authService.currentUserValue) {
+      // user logged in
+      this.router.navigate(['/track-product']);
+    } else {
+      // not logged in show modal
+      this.LoginModal.open()
+    }
+  }
+
+
+
 }

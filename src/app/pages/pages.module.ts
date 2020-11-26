@@ -25,6 +25,10 @@ import { LandingpageComponent } from "./examples/landingpage/landingpage.compone
 import { LayoutComponent } from "./layout/layout.component";
 import { FooterComponent } from "./layout/footer/footer.component";
 import { TopNavComponent } from "./layout/top-nav/top-nav.component";
+import { WhoWeAreComponent } from "./who-we-are/who-we-are.component";
+import { ErrorComponent } from "./error/error.component";
+import { AddTrackProductsComponent } from "./add-track-products/add-track-products.component";
+import { LoginComponent } from "./modals/login/login.component";
 
 
 export function tokenGetter() {
@@ -63,9 +67,13 @@ export function tokenGetter() {
     ProfilepageComponent,
     RegisterpageComponent,
     LandingpageComponent,
+    WhoWeAreComponent,
+    ErrorComponent,
     LayoutComponent,
     FooterComponent,
-    TopNavComponent
+    TopNavComponent,
+    AddTrackProductsComponent,
+    LoginComponent,
 
   ],
   exports: [
@@ -74,6 +82,10 @@ export function tokenGetter() {
     RegisterpageComponent,
     LandingpageComponent,
 
+    LoginComponent,
+    AddTrackProductsComponent,
+    ErrorComponent,
+    WhoWeAreComponent,
     LayoutComponent,
     FooterComponent,
     TopNavComponent

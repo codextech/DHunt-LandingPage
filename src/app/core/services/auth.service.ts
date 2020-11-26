@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 declare const FB : any;
 
@@ -8,7 +10,13 @@ declare const FB : any;
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {
+
+  
+  private currentUserSubject: BehaviorSubject<any>;
+  public currentUser: Observable<any>;
+
+
+  constructor(private http: HttpClient , private router: Router) {
 
   FB.init({
     appId      : environment.fbAppId,
@@ -20,71 +28,75 @@ export class AuthService {
   });
 
 
+  this.currentUserSubject = new BehaviorSubject<any>(
+    JSON.parse(localStorage.getItem("user"))
+  );
+  this.currentUser = this.currentUserSubject.asObservable();
  }
 
 
 
  fbLogin() {
-  return new Promise((resolve, reject) => {
-
     FB.login(result  => {
       console.log("🚀 ~ file: auth.service.ts ~ line 47 ~ AuthService ~ returnnewPromise ~ result", result)
       if (result.authResponse) {
         return this.http
           .get(`${environment.apiUrl}/auth/facebook`, {
             params : {access_token: result.authResponse.accessToken}
+          }).subscribe((res: any) => {
+            console.log("🚀 ~ file: auth.service.ts ~ line 50 ~ AuthService ~ returnnewPromise ~ response", res)
+            const token = res.access_token;
+            const user = res.user;
+            if (token) 
+              localStorage.setItem('auth_token', JSON.stringify(token));
+            if (user) 
+              localStorage.setItem('user', JSON.stringify(user));
+              
+            this.currentUserSubject.next(user);
+            location.reload()
+            // this.router.navigate(['/']);
+          }, err => {
+          console.log("🚀 ~ file: auth.service.ts ~ line 41 ~ AuthService ~ returnnewPromise ~ err", err)
           })
-          .toPromise()
-          .then(response => {
-          console.log("🚀 ~ file: auth.service.ts ~ line 50 ~ AuthService ~ returnnewPromise ~ response", response)
-
-          const token = response;
-          if (token) {
-            localStorage.setItem('auth_token', JSON.stringify(token));
-          }
-          resolve(response);
-          })
-          .catch(() => reject());
-      } else {
-        reject();
-      }
-    }, { scope: 'public_profile,email, name' });
-  });
+         
+    }}, { scope: 'public_profile,email' });
 }
 
 isLoggedIn() {
-  return new Promise((resolve, reject) => {
-    this.getCurrentUser().then(user => resolve(true)).catch(() => reject(false));
-  });
+  // return new Promise((resolve, reject) => {
+  //   this.getCurrentUser().then(user => resolve(true)).catch(() => reject(false));
+  // });
 }
 
 getCurrentUser() {
-  return new Promise((resolve, reject) => {
-    return this.http.get(`http://localhost:8000/api/auth/me`).toPromise().then(response => {
-      resolve(response);
-    }).catch(() => reject());
-  });
+  // return new Promise((resolve, reject) => {
+  //   return this.http.get(`http://localhost:8000/api/auth/me`).toPromise().then(response => {
+  //     resolve(response);
+  //   }).catch(() => reject());
+  // });
 }
 
+
+  // user data
+  public get currentUserValue(): any {
+    return this.currentUserSubject.value;
+  }
+
 logout() {
-  console.log('........');
-  FB.getLoginStatus(function(response) { 
-  console.log("🚀 ~ file: auth.service.ts ~ line 72 ~ AuthService ~ FB.getLoginStatus ~ response", response)
-  })
+  // FB.getLoginStatus(function(response) { 
+  // console.log("🚀 ~ file: auth.service.ts ~ line 72 ~ AuthService ~ FB.getLoginStatus ~ response", response)
+  // })
   localStorage.removeItem('auth_token');
   localStorage.clear();
+  this.currentUserSubject.next(null);
+
+  this.router.navigate(['/']);
 
   FB.logout(function(response) {
     console.log("🚀 ~ file: auth.service.ts ~ line 74 ~ AuthService ~ FB.logout ~ response", response)
-    this.deleteCookie("fblo_" + environment.fbAppId); // fblo_yourFBAppId. example: fblo_444499089231295
   });
+
 }
 
-
-
-
-deleteCookie(name) {
-  document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-}
 
 }

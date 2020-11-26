@@ -8,6 +8,10 @@ import { ProfilepageComponent } from "./pages/examples/profilepage/profilepage.c
 import { RegisterpageComponent } from "./pages/examples/registerpage/registerpage.component";
 import { LandingpageComponent } from "./pages/examples/landingpage/landingpage.component";
 import { LayoutComponent } from "./pages/layout/layout.component";
+import { WhoWeAreComponent } from "./pages/who-we-are/who-we-are.component";
+import { ErrorComponent } from "./pages/error/error.component";
+import { AddTrackProductsComponent } from "./pages/add-track-products/add-track-products.component";
+import { AuthGuard } from "./core/guards/auth.guard";
 
 const routes: Routes = [
 {
@@ -15,9 +19,14 @@ const routes: Routes = [
   children: [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: IndexComponent },
+  { path: "who-we-are", component: WhoWeAreComponent },
   { path: "profile", component: ProfilepageComponent },
   { path: "register", component: RegisterpageComponent },
-  { path: "landing", component: LandingpageComponent }
+  { path: "landing", component: LandingpageComponent },
+  { path: "track-product", component: AddTrackProductsComponent , canActivate: [AuthGuard],
+},
+  
+  { path: "error", component: ErrorComponent }
 ]
 }
 ];
@@ -27,7 +36,7 @@ const routes: Routes = [
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes, {
-      useHash: true
+      // useHash: true
     })
   ],
   exports: []

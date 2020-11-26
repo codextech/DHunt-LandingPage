@@ -92,8 +92,6 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
 
 
   fbLogin() {
-    this.authService.fbLogin().then(() => {
-      console.log('User has been logged in');
-      this.router.navigate(['/']);
-    });  }
+    this.authService.fbLogin();
+  }
 }

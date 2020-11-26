@@ -16,11 +16,30 @@ export class TopNavComponent implements OnInit , OnDestroy{
   date = new Date();
   pagination = 3;
   pagination1 = 1;
-  constructor(private authService : AuthService) {}
+  displayName: string;
+  displayEmail: string;
+  constructor(public authService : AuthService) {}
   scrollToDownload(element: any) {
     element.scrollIntoView({ behavior: "smooth" });
   }
   ngOnInit() {
+
+    this.authService.currentUser.subscribe(res => {
+    console.log("🚀 ~ file: top-nav.component.ts ~ line 28 ~ TopNavComponent ~ ngOnInit ~ res", res)
+    console.log("🚀 ~ file: top-nav.component.ts ~ line 30 ~ TopNavComponent ~ ngOnInit ~ this.authService.currentUserValue", this.authService.currentUserValue)
+     
+    if (this.authService.currentUserValue) {
+        // this.displayName = this.authService.user.displayName;
+        this.displayName = `${this.authService.currentUserValue.firstName} ${this.authService.currentUserValue.lastName}`;
+        this.displayEmail = this.authService.currentUserValue.email;
+      }
+    })
+
+
+    setTimeout(() => {
+      
+
+
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("index-page");
 
@@ -45,6 +64,9 @@ export class TopNavComponent implements OnInit , OnDestroy{
         max: 100
       }
     });
+
+  }, 200);
+
   }
 
 

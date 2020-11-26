@@ -37,17 +37,30 @@
   }
 
   .card-header {
-    padding: 0 0 50px;
+    // padding: 0 0 50px;
+    padding: 10px;
     overflow: hidden;
 
     .card-title {
+
+      padding: 15px;
+      color: white;
+      text-align: center;
+
       position: relative;
-      font-size: 5em;
-      font-weight: 900;
-      color: $black;
+      font-size: 3em;
+      font-weight: 400;
+      color:#f7f7f8;
       text-transform: lowercase;
-      margin-left: -5px;
       z-index: 1;
+
+      // position: relative;
+      // font-size: 5em;
+      // font-weight: 900;
+      // color: $black;
+      // text-transform: lowercase;
+      // margin-left: -5px;
+      // z-index: 1;
     }
   }
 

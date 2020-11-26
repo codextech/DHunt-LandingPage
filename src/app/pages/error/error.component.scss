@@ -1,0 +1,90 @@
+
+
+
+.page-header .page-header-image {
+    position: absolute;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.page-header .container, .page-header .title {
+    color: #fff;
+}
+.page-header .container {
+    height: 100%;
+    z-index: 1;
+}
+.page-header .container, .page-header .container-fluid {
+    // padding-top: 12vh;
+    // padding-bottom: 40px;
+}
+.error-page>.container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 200px;
+    margin-top: -100px;
+    margin-left: -200px;
+    width: 400px;   
+}
+
+
+
+
+.header-filter {
+    position: relative;
+}
+.page-header {
+    min-height: 100vh;
+    max-height: 999px;
+    padding: 0;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+.page-header {
+    display: flex;
+    align-items: center;
+}
+
+.page-header .page-header-image {
+    position: absolute;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.error-page>.container .title {
+    font-size: 12em;
+    color: #fff;
+    letter-spacing: 14px;
+    font-weight: 700;
+}
+
+.page-header .category, .page-header .description {
+    color: rgba(255,255,255,.8);
+}
+.card .footer .stats, .card-description, .description {
+    color: #9a9a9a;
+    font-weight: 300;
+}
+
+
+
+
+.header-filter:before {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    content: "";
+    background-color: rgba(0,0,0,.5);
+}
