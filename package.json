@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "description": "BLK Design System Angular: Free Angular Design System For Bootstrap 4 and Angular",
     "test": "ng test",
     "lint": "ng lint",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/creativetimofficial/blk-design-system-angular.git"
+    "url": "git+https://github.com/codextech/DHunt-LandingPage.git"
   },
   "keywords": [
     "design system",
