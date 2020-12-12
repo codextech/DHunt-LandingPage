@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 @Component({
   selector: 'app-alert',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlertComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private ngxSmartModalService : NgxSmartModalService,
+  ) { }
 
   ngOnInit() {
   }

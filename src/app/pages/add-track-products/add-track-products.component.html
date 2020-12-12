@@ -10,17 +10,29 @@
           </div>
           <div class="card card-raised card-form-horizontal">
             <div class="card-body">
-              <form action="" method="" novalidate="" class="ng-untouched ng-pristine ng-valid">
+              <form (submit)="onSubmit()" #f="ngForm"  novalidate="" class="ng-untouched ng-pristine ng-valid">
                 <div class="row">
                   <div class="col-sm-8">
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text"><i
-                            class="tim-icons icon-email-85"></i></span></div><input class="form-control"
-                        placeholder="https://" type="email">
+                            class="tim-icons icon-link-72"></i></span></div>
+                      <input class="form-control"
+                      required  ngModel #link="ngModel" name="link" [(ngModel)]="model.link"
+                        placeholder="https://" type="text">
                     </div>
                   </div>
-                  <div class="col-sm-4"><button class="btn btn-primary btn-round btn-block" type="button"> Add
-                    </button></div>
+                  <div class="col-sm-4">
+                    <!-- <button class="btn btn-primary btn-round btn-block" type="button"> Add
+                    </button> -->
+                    <button [disabled]="!f.form.valid" type="submit" class="btn btn-primary btn-round">
+                      <i class="tim-icons icon-zoom-split"></i> Add
+                      </button>
+                  
+                  </div>
+
+                  <!-- <div [hidden]="link.valid || link.pristine"
+     class="alert alert-danger"> required
+     </div> -->
                 </div>
               </form>
             </div>
@@ -30,7 +42,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="">
     <div class="container">
 
       <div class="col-md-12 ml-auto mr-auto">
@@ -45,76 +57,27 @@
                 <thead>
                   <tr>
                     <th class="text-center">#</th>
-                    <th>Name</th>
-                    <th>Job Position</th>
-                    <th class="text-center">Since</th>
-                    <th class="text-right">Salary</th>
-                    <th class="text-right">Actions</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <!-- <th class="text-center">Stock</th> -->
+                    <th class="text-center">Sold</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td class="text-center">1</td>
-                    <td>Andrew Mike</td>
-                    <td>Develop</td>
-                    <td class="text-center">2013</td>
-                    <td class="text-right">€ 99,225</td>
-                    <td class="text-right"><button class="btn btn-info btn-icon btn-sm mr-1" type="button"><i
-                          class="tim-icons icon-single-02"></i></button><button
-                        class="btn btn-success btn-icon btn-sm mr-1" type="button"><i
-                          class="tim-icons icon-settings"></i></button><button class="btn btn-danger btn-icon btn-sm"
-                        type="button"><i class="tim-icons icon-simple-remove"></i></button></td>
+                  <tr *ngFor="let item of data; let i =index">
+                    <td class="text-center">{{i+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.category}}</td>
+                    <td class="text-center">{{item.stock}}</td>
+
+                    <td class="text-right">
+                      <a [href]="item.link" target="_blank" class="btn btn-info btn-icon btn-sm btn-simple mr-1" type="button">
+                        <i class="tim-icons icon-tap-02"></i>
+                      </a>
+                    </td>
                   </tr>
-                  <tr>
-                    <td class="text-center">2</td>
-                    <td>John Doe</td>
-                    <td>Design</td>
-                    <td class="text-center">2012</td>
-                    <td class="text-right">€ 89,241</td>
-                    <td class="text-right"><button class="btn btn-info btn-icon btn-sm mr-1" type="button"><i
-                          class="tim-icons icon-single-02"></i></button><button
-                        class="btn btn-success btn-icon btn-sm mr-1" type="button"><i
-                          class="tim-icons icon-settings"></i></button><button class="btn btn-danger btn-icon btn-sm"
-                        type="button"><i class="tim-icons icon-simple-remove"></i></button></td>
-                  </tr>
-                  <tr>
-                    <td class="text-center">3</td>
-                    <td>Alex Mike</td>
-                    <td>Design</td>
-                    <td class="text-center">2010</td>
-                    <td class="text-right">€ 92,144</td>
-                    <td class="text-right"><button class="btn btn-info btn-icon btn-sm mr-1" type="button"><i
-                          class="tim-icons icon-single-02"></i></button><button
-                        class="btn btn-success btn-icon btn-sm mr-1" type="button"><i
-                          class="tim-icons icon-settings"></i></button><button class="btn btn-danger btn-icon btn-sm"
-                        type="button"><i class="tim-icons icon-simple-remove"></i></button></td>
-                  </tr>
-                  <tr>
-                    <td class="text-center">4</td>
-                    <td>Mike Monday</td>
-                    <td>Marketing</td>
-                    <td class="text-center">2013</td>
-                    <td class="text-right">€ 49,990</td>
-                    <td class="text-right"><button class="btn btn-info btn-icon btn-sm btn-simple mr-1" type="button"><i
-                          class="tim-icons icon-single-02"></i></button><button
-                        class="btn btn-success btn-icon btn-sm btn-simple mr-1" type="button"><i
-                          class="tim-icons icon-settings"></i></button><button
-                        class="btn btn-danger btn-icon btn-sm btn-simple" type="button"><i
-                          class="tim-icons icon-simple-remove"></i></button></td>
-                  </tr>
-                  <tr>
-                    <td class="text-center">5</td>
-                    <td>Paul Dickens</td>
-                    <td>Communication</td>
-                    <td class="text-center">2015</td>
-                    <td class="text-right">€ 69,201</td>
-                    <td class="text-right"><button class="btn btn-info btn-icon btn-sm btn-simple mr-1" type="button"><i
-                          class="tim-icons icon-single-02"></i></button><button
-                        class="btn btn-success btn-icon btn-sm btn-simple mr-1" type="button"><i
-                          class="tim-icons icon-settings"></i></button><button
-                        class="btn btn-danger btn-icon btn-sm btn-simple" type="button"><i
-                          class="tim-icons icon-simple-remove"></i></button></td>
-                  </tr>
+               
+<!--                    
                   <tr>
                     <td class="text-center">6</td>
                     <td>Manuel Rico</td>
@@ -127,7 +90,7 @@
                           class="tim-icons icon-settings"></i></button><button
                         class="btn btn-danger btn-icon btn-sm btn-simple" type="button"><i
                           class="tim-icons icon-simple-remove"></i></button></td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>

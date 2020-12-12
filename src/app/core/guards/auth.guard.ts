@@ -5,32 +5,41 @@ import {
   Router,
   RouterStateSnapshot,
 } from "@angular/router";
+import { NgxSmartModalService } from "ngx-smart-modal";
 import { AuthService } from "../services/auth.service";
 declare const $ : any;
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService,
+    private ngxSmartModalService : NgxSmartModalService,
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+     private router: Router) {}
+
+  canActivate(route: ActivatedRouteSnapshot, 
+    state: RouterStateSnapshot) {
     const currentUser = this.authService.currentUserValue;
     if (currentUser) {
-      // // check if route is restricted by role
-      // if (route.data.roles && route.data.roles.indexOf(currentUser.role) === -1) {
-      //     // role not authorised so redirect to home page
-      //     this.router.navigate(['/']);
-      //     return false;
-      // }
-      // authorised so return true
+
       return true;
     }
 
+    // let  isModalActive =this.ngxSmartModalService.getModal('authModal');
+    // console.log("🚀 ~ file: auth.guard.ts ~ line 35 ~ AuthGuard ~ isModalActive", isModalActive)
+    // if (isModalActive) {
+    // setTimeout(() => {
+    // this.ngxSmartModalService.open('authModal')
+    // }, 2000);
+    // }
+
     // // not logged in so redirect to login page with the return url
-    this.router.navigate(["/register"], {
+    this.router.navigate(["/home"], {
       queryParams: { returnUrl: state.url },
     });
+    setTimeout(() => {
+    this.ngxSmartModalService.open('authModal')
+    }, 100);
 
-    // $('#myModal2').show();  
     return false;
   }
 }

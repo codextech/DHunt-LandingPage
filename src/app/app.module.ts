@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { ProgressbarModule } from "ngx-bootstrap/progressbar";
@@ -24,9 +24,16 @@ import { ProfilepageComponent } from "./pages/examples/profilepage/profilepage.c
 import { RegisterpageComponent } from "./pages/examples/registerpage/registerpage.component";
 import { LandingpageComponent } from "./pages/examples/landingpage/landingpage.component";
 import { AuthGuard } from "./core/guards/auth.guard";
+import { NgxSmartModalModule, NgxSmartModalService } from "ngx-smart-modal";
+import { AlertComponent } from "./pages/modals/alert/alert.component";
+import { ApiInterceptor } from "./core/interceptors/api.interceptor";
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AlertComponent
+
     // IndexComponent,
     // ProfilepageComponent,
     // RegisterpageComponent,
@@ -43,15 +50,22 @@ import { AuthGuard } from "./core/guards/auth.guard";
     // TooltipModule.forRoot(),
     // CollapseModule.forRoot(),
     // TabsModule.forRoot(),
-    PagesModule
+    PagesModule,
     // PaginationModule.forRoot(),
     // AlertModule.forRoot(),
     // BsDatepickerModule.forRoot(),
     // CarouselModule.forRoot(),
     // ModalModule.forRoot()
+    NgxSmartModalModule.forRoot(),
+    NgxSpinnerModule,
+
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
+    NgxSmartModalService,
+    NgxSpinnerService,
+
   ],
   bootstrap: [AppComponent]
 })

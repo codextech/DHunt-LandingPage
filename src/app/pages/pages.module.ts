@@ -29,6 +29,8 @@ import { WhoWeAreComponent } from "./who-we-are/who-we-are.component";
 import { ErrorComponent } from "./error/error.component";
 import { AddTrackProductsComponent } from "./add-track-products/add-track-products.component";
 import { LoginComponent } from "./modals/login/login.component";
+import { NgxSmartModalModule } from "ngx-smart-modal";
+import { AlertComponent } from "./modals/alert/alert.component";
 
 
 export function tokenGetter() {
@@ -54,6 +56,7 @@ export function tokenGetter() {
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
     HttpClientModule,
+    NgxSmartModalModule,
     // JwtModule.forRoot({
     //   config: {
     //     tokenGetter,
@@ -74,14 +77,12 @@ export function tokenGetter() {
     TopNavComponent,
     AddTrackProductsComponent,
     LoginComponent,
-
   ],
   exports: [
     IndexComponent,
     ProfilepageComponent,
     RegisterpageComponent,
     LandingpageComponent,
-
     LoginComponent,
     AddTrackProductsComponent,
     ErrorComponent,

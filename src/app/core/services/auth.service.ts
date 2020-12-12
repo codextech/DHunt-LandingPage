@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, NextObserver, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 declare const FB : any;
 
@@ -35,32 +35,50 @@ export class AuthService {
  }
 
 
-
+ 
  fbLogin() {
-    FB.login(result  => {
-      console.log("🚀 ~ file: auth.service.ts ~ line 47 ~ AuthService ~ returnnewPromise ~ result", result)
-      if (result.authResponse) {
-        return this.http
-          .get(`${environment.apiUrl}/auth/facebook`, {
-            params : {access_token: result.authResponse.accessToken}
-          }).subscribe((res: any) => {
-            console.log("🚀 ~ file: auth.service.ts ~ line 50 ~ AuthService ~ returnnewPromise ~ response", res)
-            const token = res.access_token;
-            const user = res.user;
-            if (token) 
-              localStorage.setItem('auth_token', JSON.stringify(token));
-            if (user) 
-              localStorage.setItem('user', JSON.stringify(user));
-              
-            this.currentUserSubject.next(user);
-            location.reload()
-            // this.router.navigate(['/']);
-          }, err => {
-          console.log("🚀 ~ file: auth.service.ts ~ line 41 ~ AuthService ~ returnnewPromise ~ err", err)
-          })
-         
-    }}, { scope: 'public_profile,email' });
+  return new Observable((observer: NextObserver<any>) => {
+    FB.login(
+      (result) => {
+        console.log(
+          "🚀 ~ file: auth.service.ts ~ line 47 ~ AuthService ~ returnnewPromise ~ result",
+          result
+        );
+        if (result.authResponse) {
+          return this.http
+            .get(`${environment.apiUrl}/auth/facebook`, {
+              params: { access_token: result.authResponse.accessToken },
+            })
+            .subscribe((res: any) => {
+              console.log("🚀 ~", res);
+              this.setUserAsAuthenticatedLocally(res);
+
+              observer.next(res);
+              observer.complete();
+            });
+        } else {
+          observer.next(false);
+          observer.error(result);
+        }
+      },
+      { scope: "public_profile,email" }
+    );
+  });
 }
+
+
+
+setUserAsAuthenticatedLocally(res) {
+  const token = res.access_token;
+  const user = res.user;
+  if (token) 
+    localStorage.setItem('auth_token', token);
+  if (user) 
+    localStorage.setItem('user', JSON.stringify(user));
+    this.currentUserSubject.next(user);
+}
+
+
 
 isLoggedIn() {
   // return new Promise((resolve, reject) => {

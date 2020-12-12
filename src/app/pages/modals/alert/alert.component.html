@@ -1,3 +1,33 @@
-<p>
-  alert works!
-</p>
+
+
+
+<ngx-smart-modal [dismissable]="false" [closable]="false" #alertModal identifier="alertModal">
+
+
+
+  <div class="modal-black" >
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <button class="close" (click)="alertModal.close()" type="button">
+            <i class="tim-icons icon-simple-remove text-white"> </i>
+          </button>
+          <div class="text-muted text-center ml-auto mr-auto">
+            <h3 class="mb-0">Thank You</h3>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="btn-wrapper text-center">
+            Please visit after 24 days , get the total sold item per day.
+          </div>
+          <div class="text-center text-muted mb-4 mt-3">
+            <small> you will be informed by email about this product tracking </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+
+</ngx-smart-modal>

@@ -67,15 +67,15 @@
             dropdownToggle
             href="javascript:void(0)"
           >
-            <i class="fa fa-cogs d-lg-none d-xl-none"> </i> 
+            <!-- <i class="fa fa-cogs d-lg-none d-xl-none"> </i>  -->
+            <i class="tim-icons icon-single-02"> </i>   
             {{displayName | titlecase}}
           </a>
           <div class="dropdown-menu dropdown-with-icons" *dropdownMenu>
             <a
               class="dropdown-item"
-              href="https://demos.creative-tim.com/blk-design-system-angular/#/documentation/overview"
             >
-              <i class="tim-icons icon-paper"> </i>   
+              <i class="tim-icons icon-email-85"> </i>   
               {{displayEmail}}
             </a>
          
@@ -86,7 +86,7 @@
               <i class="tim-icons icon-image-02"> </i> Tracked Products
             </a>
             <a style="cursor: pointer;" class="dropdown-item"  (click)="logOut()" >
-              <i class="tim-icons icon-bullet-list-67"> </i> Log out
+              <i class="tim-icons icon-button-power"> </i> Log out
             </a>
           </div>
         </li>

@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
+import { NgxSmartModalService } from "ngx-smart-modal";
 import noUiSlider from "nouislider";
 import { AuthService } from "src/app/core/services/auth.service";
 import { LoginComponent } from "../modals/login/login.component";
@@ -19,7 +20,9 @@ export class IndexComponent implements OnInit, OnDestroy {
   date = new Date();
   pagination = 3;
   pagination1 = 1;
-  constructor(public authService : AuthService ,  private router: Router) {}
+  constructor(public authService : AuthService , 
+    private ngxSmartModalService : NgxSmartModalService,
+     private router: Router) {}
   scrollToDownload(element: any) {
     element.scrollIntoView({ behavior: "smooth" });
   }
@@ -56,13 +59,7 @@ export class IndexComponent implements OnInit, OnDestroy {
 
 
   showModalOrGoToTrackingPage(){
-    if (this.authService.currentUserValue) {
-      // user logged in
       this.router.navigate(['/track-product']);
-    } else {
-      // not logged in show modal
-      this.LoginModal.open()
-    }
   }
 
 
