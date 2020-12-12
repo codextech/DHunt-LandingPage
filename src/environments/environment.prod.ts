@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:3000',
+  apiUrl: 'https://dhuntdemo.herokuapp.com',
   fbAppId : '2747012628960794'
 
 };
