@@ -13,7 +13,7 @@ export class TrackProductService {
 
   getTrackingProducts(params = {}): Observable<any> {
     return this.http
-      .get<any>(`${environment.apiUrl}/${this.endpoint}`, { params: params })
+      .get<any>(`${environment.apiUrl}/${this.endpoint}/me`, { params: params })
       .pipe(
         map((res) => {
           console.log(
@@ -36,6 +36,10 @@ export class TrackProductService {
             res
           );
           // may be return with pagiantion or without pagination
+          return res;
+        }),
+        tap(res => {
+          ;
           return res;
         })
       );
